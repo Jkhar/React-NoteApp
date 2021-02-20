@@ -7,18 +7,24 @@ const noteSchema = mongoose.Schema({
         
             } ,
  
-            phone : {
+            Tel : {
                 type : String , 
                 required : true , 
         
             } ,
 
-            Paysresidence : {
+            PaysEntreprise : {
                 type : String , 
                 required : true , 
         
             },
-            Datedenaissance : {
+            TypeService : {
+                type : String , 
+                required : true , 
+        
+            }, 
+
+            AproposService : {
                 type : String , 
                 required : true , 
         

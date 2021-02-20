@@ -13,23 +13,18 @@ const noteSchema = mongoose.Schema({
         
             } ,
  
-            phone : {
+            Tel : {
                 type : String , 
                 required : true , 
         
             } ,
 
-            Paysresidence : {
+            TypeService : {
                 type : String , 
                 required : true , 
         
             },
-            Datedenaissance : {
-                type : String , 
-                required : true , 
-        
-            },              
-            
+                             
             email : {
                 type : String , 
                 required : true , 

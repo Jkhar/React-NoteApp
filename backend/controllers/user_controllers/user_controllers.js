@@ -3,15 +3,16 @@ const User_entreprise_model = require('../../models/User/user_entreprise_model')
 
 const AddUserEntreprise = (req,res)=> {
     const Nom= req.body.Nom;
-    const phone= req.body.phone ;
-    const Paysresidence = req.body.Paysresidence;
-    const Datedenaissance = req.body.Datedenaissance ;
+    const Tel= req.body.Tel ;
+    const PaysEntreprise   = req.body.PaysEntreprise ;
+    const TypeService   = req.body.TypeService   ;
+    const AproposService     = req.body.AproposService     ;
     const email = req.body.email;
     const password = req.body.password ;
 
             // creation de la nouvelle note 
             const new_user_entreprise = new User_entreprise_model ({Nom , 
-                phone,Paysresidence,Datedenaissance,
+                Tel,PaysEntreprise,TypeService,AproposService,
                   email ,password }) ;
 
             // ajout de la user dans la base de donne
@@ -27,9 +28,8 @@ const AddUserEntreprise = (req,res)=> {
 const AddUserIndividuel = (req,res)=> {
     const Nom= req.body.Nom;
     const Prenom= req.body.Prenom;
-    const phone= req.body.phone ;
-    const Paysresidence = req.body.Paysresidence;
-    const Datedenaissance = req.body.Datedenaissance ;
+    const Tel= req.body.Tel ;
+    const TypeService= req.body.TypeService ;
     const email = req.body.email;
     const password = req.body.password ;
 
@@ -37,18 +37,15 @@ const AddUserIndividuel = (req,res)=> {
     const email_user = req.body.email;
     const password_user  = req.body.password ;
 
-    console.log(email_user) ; 
-    console.log(password_user) ; 
-            // creation de la nouvelle user
-            const new_user_individuel = new User_individuel_model({Nom , Prenom,
-                phone,Paysresidence,Datedenaissance,
-                 email ,password }) ;
+    console.log("email : "+email_user+" Password : "+password_user) ; 
 
-            // ajout de la note dans la base de donne
-            new_user_individuel.save().then ( () => {
-                console.log(" new_user_individuel est ajouté aver succés dans bd user") ;
-                
-                res.json({message : "ajouté avec succés"}) ;
+    // creation de la nouvelle user
+    const new_user_individuel = new User_individuel_model({Nom , Prenom, Tel,TypeService,email ,password }) ;
+
+    // ajout de la note dans la base de donne
+    new_user_individuel.save().then ( () => {
+    console.log(" new_user_individuel est ajouté aver succés dans bd user") ;
+    res.json({message : "ajouté avec succés"}) ;
 
             }).catch (err => console.log(err)) ; 
 } ;
